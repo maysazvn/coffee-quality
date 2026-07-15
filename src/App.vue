@@ -1,11 +1,22 @@
 <script setup>
-import AppHeader from './components/AppHeader.vue';
+import AppHeader from './components/AppHeader.vue'
+import AppFooter from './components/AppFooter.vue'
 </script>
 
 <template>
-    <AppHeader></AppHeader>
-  <RouterView />
+  <header>
+  <AppHeader></AppHeader>
+  </header>
+  <main>
+    <RouterView />
+  </main>
+  <footer>
+  <AppFooter></AppFooter>
+  </footer>
 </template>
 
 <style scoped>
+main, footer, header{
+  background-color: white;
+}
 </style>
