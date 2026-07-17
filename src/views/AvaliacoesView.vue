@@ -47,6 +47,8 @@ const novosCafesAvaliados =
 cafes.value.push(novosCafesAvaliados);
 limparFormulario();
 }
+
+//componentizaritens
 </script>
 
 <template>

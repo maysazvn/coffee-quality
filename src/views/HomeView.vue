@@ -123,4 +123,12 @@ border-top: 2px solid #d7ccc8;
   width: 15%;
   margin: 0 auto;
 }
+
+/* paleta:
+#2b1a13 Marrom escuro para letras
+#705c53 Marrom para letras mais claras
+#5c3826 Marrom café escuro
+#fdf5ec Creme de fundo
+#f3e5d8 Creme bordas
+#fdf2e9 Creme de fundo 2 */
 </style>
