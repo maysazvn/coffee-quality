@@ -1,8 +1,28 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue'
 import { cafesAvaliados } from '@/data/CafesAvaliados'
 
-const cafes = ref(cafesAvaliados);
+const cafes = ref(cafesAvaliados)
+
+const maiorNota = computed(() => {
+  let maior = 0
+
+  for (let item = 0; item < cafes.value.length; item++) {
+    let notaAtual = Number(cafes.value[item].media)
+
+    if (notaAtual > maior) {
+      maior = notaAtual
+    }
+  }
+  return maior.toFixed(1)
+})
+
+const ultimaAvaliacao = computed(() => {
+const posicaoUltima = cafes.value.length - 1;
+const ultimoCafe = cafes.value[posicaoUltima];
+
+return ultimoCafe.dtavaliacao;
+})
 </script>
 
 <template>
@@ -33,15 +53,15 @@ const cafes = ref(cafesAvaliados);
         <div class="icon">🏆</div>
 
         <h2>Café com maior nota</h2>
-        <!-- {{ nota }} -->
-          <span class="numero-span"></span>
+
+        <span class="numero-span">{{ maiorNota }}</span>
       </div>
       <div class="card">
         <div class="icon">🕒</div>
 
         <h2>Ultima avaliacao</h2>
 
-        <span class="numero-span"></span>
+        <span class="numero-span">{{ ultimaAvaliacao }}</span>
       </div>
     </div>
 
@@ -60,7 +80,7 @@ const cafes = ref(cafesAvaliados);
   gap: 30px;
 }
 
-.banner-icon{
+.banner-icon {
   font-size: 4.5rem;
   display: flex;
   align-items: center;
@@ -74,10 +94,10 @@ const cafes = ref(cafesAvaliados);
   color: #2b1a13;
 }
 
-hr{
+hr {
   width: 60px;
   margin-bottom: 15px;
-border-top: 2px solid #d7ccc8;
+  border-top: 2px solid #d7ccc8;
 }
 
 .banner-texto p {
@@ -106,24 +126,24 @@ border-top: 2px solid #d7ccc8;
   width: 100%;
 }
 
-.card h2{
+.card h2 {
   font-weight: bold;
   color: #2b1a13;
   margin: 10px 0;
 }
 
-.card .numero-span{
+.card .numero-span {
   font-size: 2rem;
   font-weight: bold;
 }
 
-.card-info{
+.card-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.icon{
+.icon {
   display: flex;
   align-items: center;
   justify-content: center;
