@@ -1,4 +1,9 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+import { cafesAvaliados } from '@/data/CafesAvaliados'
+
+const cafes = ref(cafesAvaliados);
+</script>
 
 <template>
   <section class="banner">
@@ -20,7 +25,7 @@
 
         <div class="card-info">
           <h2>Total de cafés avaliados</h2>
-          <!-- {{ cafes-avaliados }} -->
+          <span class="numero-span">{{ cafes.length }}</span>
           <p>Cafés</p>
         </div>
       </div>
@@ -29,11 +34,14 @@
 
         <h2>Café com maior nota</h2>
         <!-- {{ nota }} -->
+          <span class="numero-span"></span>
       </div>
       <div class="card">
         <div class="icon">🕒</div>
 
         <h2>Ultima avaliacao</h2>
+
+        <span class="numero-span"></span>
       </div>
     </div>
 
@@ -87,18 +95,32 @@ border-top: 2px solid #d7ccc8;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 15px;
   margin: 2vw;
+  display: flex;
+  justify-content: center;
 }
 
 .card {
   border: 1px solid #b8b8b8;
   padding: 15px;
   border-radius: 10px;
+  width: 100%;
 }
 
 .card h2{
   font-weight: bold;
   color: #2b1a13;
   margin: 10px 0;
+}
+
+.card .numero-span{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.card-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .icon{
