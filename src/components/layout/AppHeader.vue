@@ -61,7 +61,18 @@ ul li {
 
 ul li a {
   text-decoration: none;
-  color: #3e2723;
+  color: #705c53;
+}
+
+ul li:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+ul li .router-link-active{
+  color: white;
+  background-color: #3e2723;
+  padding: 5px;
 }
 
 </style>
